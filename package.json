@@ -1,0 +1,39 @@
+{
+  "name": "rfp2205-mvp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "nodemon server/index.js",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kbinhnguyen/rfp2205-mvp.git"
+  },
+  "author": "Binh Nguyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kbinhnguyen/rfp2205-mvp/issues"
+  },
+  "homepage": "https://github.com/kbinhnguyen/rfp2205-mvp#readme",
+  "dependencies": {
+    "@apollo/client": "^3.6.9",
+    "apollo-server": "^3.10.0",
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "graphql": "^16.5.0",
+    "next": "^12.2.4",
+    "nodemon": "^2.0.19",
+    "pg": "^8.7.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0",
+    "eslint-config-next": "12.2.4"
+  }
+}
