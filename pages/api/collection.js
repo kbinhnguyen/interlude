@@ -9,7 +9,6 @@ const resolvers = {
 
 };
 
-
 // Create server instance
 const server = new ApolloServer({
   typeDefs,
@@ -19,9 +18,9 @@ const server = new ApolloServer({
 });
 
 server.listen({
-  host: '/api/collection'
+  host: '/api/collection',
 })
-  .then(( { url }) => {
+  .then(({ url }) => {
     console.log(`ApolloServer ready at ${url}`);
   })
   .catch((err) => { console.log(err); });

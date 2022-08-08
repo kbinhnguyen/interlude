@@ -16,15 +16,13 @@ app.prepare().then(() => {
   */
 
   // hand rendering control of all other pages over to NextJS
-  server.get('*', (req, res) => {
-    return handle(req, res);
-  });
+  server.get('*', (req, res) => (handle(req, res)));
 
   server.listen(process.env.PORT, (err) => {
     if (err) {
-      throw err;
+      console.log(err);
     } else {
       console.log(`Currently serving port ${process.env.PORT}`);
     }
-  })
+  });
 });
