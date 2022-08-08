@@ -9,16 +9,11 @@ const client = new ApolloClient({
 function CustomApp({ Component, pageProps }) {
   console.log('I am inside CustomApp');
   return (
-    <>
-      <ApolloProvider client={client}>
-        <NavBar />
-        <Component {...pageProps} />
-      </ApolloProvider>
+    <ApolloProvider client={client}>
+      <NavBar />
+      <Component {...pageProps} />
       <style jsx global>
         {`
-          // a {
-          //   background-color: grey;
-          // }
           .navbar {
             background-color: grey;
             display: flex;
@@ -27,7 +22,7 @@ function CustomApp({ Component, pageProps }) {
           }
         `}
       </style>
-    </>
+    </ApolloProvider>
   );
 }
 
