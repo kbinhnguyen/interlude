@@ -41,3 +41,6 @@ INSERT INTO users_tracks (user_id, track_id) VALUES (1, '59RYf8nulz9cINoOqZS703'
 INSERT INTO users_tracks (user_id, track_id) VALUES (2, '35o9a4iAfLl5jRmqMX9c1D');
 INSERT INTO users_tracks (user_id, track_id) VALUES (3, '59RYf8nulz9cINoOqZS703');
 INSERT INTO users_tracks (user_id, track_id) VALUES (3, '35o9a4iAfLl5jRmqMX9c1D');
+
+CREATE INDEX user_index_on_usertrack ON users_tracks (user_id);
+CREATE INDEX track_index_on_usertrack ON users_tracks (track_id);
