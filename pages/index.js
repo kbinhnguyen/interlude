@@ -20,7 +20,6 @@ export async function getServerSideProps() {
       }
     }`,
   });
-  console.log(data);
   return { props: { users: data.allUsers } };
 }
 

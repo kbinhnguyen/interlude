@@ -2,14 +2,10 @@ import { ApolloProvider } from '@apollo/client';
 import NavBar from '../components/NavBar';
 import graphQLClient from '../components/ApolloClient';
 
-require('dotenv').config();
-
-const client = graphQLClient;
-
 function CustomApp({ Component, pageProps }) {
   console.log('I am inside CustomApp');
   return (
-    <ApolloProvider client={client}>
+    <ApolloProvider client={graphQLClient}>
       <NavBar />
       <Component {...pageProps} />
       <style jsx global>
