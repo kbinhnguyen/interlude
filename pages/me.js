@@ -1,6 +1,5 @@
 import { gql, useApolloClient } from '@apollo/client';
 import { useEffect } from 'react';
-import graphQLClient from '../components/ApolloClient';
 
 function Me() {
   const client = useApolloClient();
