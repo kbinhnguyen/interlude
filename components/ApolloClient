@@ -1,0 +1,14 @@
+import {
+  ApolloClient, createHttpLink, InMemoryCache
+} from '@apollo/client';
+
+const graphQLClient = new ApolloClient({
+  ssrMode: typeof window === 'undefined',
+  link: createHttpLink({
+    uri: `http://localhost:${process.env.API_SERVER_PORT}`,
+    credentials: 'same-origin',
+  }),
+  cache: new InMemoryCache(),
+});
+
+export default graphQLClient;

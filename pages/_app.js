@@ -1,10 +1,10 @@
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { ApolloProvider } from '@apollo/client';
 import NavBar from '../components/NavBar';
+import graphQLClient from '../components/ApolloClient';
 
-const client = new ApolloClient({
-  uri: '/api/collection',
-  cache: new InMemoryCache(),
-});
+require('dotenv').config();
+
+const client = graphQLClient;
 
 function CustomApp({ Component, pageProps }) {
   console.log('I am inside CustomApp');

@@ -6,6 +6,10 @@ const nextConfig = {
   webpack: (config) => {
     config.resolve.fallback = {
       fs: false,
+      dns: false,
+      net: false,
+      tls: false,
+      'pg-native': false,
     };
     return config;
   },
