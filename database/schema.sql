@@ -26,6 +26,9 @@ CREATE TABLE IF NOT EXISTS users_tracks (
   track_id VARCHAR(255) NOT NULL REFERENCES tracks(id)
 );
 
+CREATE INDEX user_index_on_usertrack ON users_tracks (user_id);
+CREATE INDEX track_index_on_usertrack ON users_tracks (track_id);
+
 -- Add dummy data
 
 INSERT INTO users (username, img_url) VALUES ('binh', 'https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80');
@@ -41,6 +44,3 @@ INSERT INTO users_tracks (user_id, track_id) VALUES (1, '59RYf8nulz9cINoOqZS703'
 INSERT INTO users_tracks (user_id, track_id) VALUES (2, '35o9a4iAfLl5jRmqMX9c1D');
 INSERT INTO users_tracks (user_id, track_id) VALUES (3, '59RYf8nulz9cINoOqZS703');
 INSERT INTO users_tracks (user_id, track_id) VALUES (3, '35o9a4iAfLl5jRmqMX9c1D');
-
-CREATE INDEX user_index_on_usertrack ON users_tracks (user_id);
-CREATE INDEX track_index_on_usertrack ON users_tracks (track_id);

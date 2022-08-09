@@ -18,11 +18,11 @@ app.prepare().then(() => {
   // hand rendering control of all other pages over to NextJS
   server.get('*', (req, res) => (handle(req, res)));
 
-  server.listen(process.env.PORT, (err) => {
+  server.listen(process.env.HTML_SERVER_PORT, (err) => {
     if (err) {
       console.log(err);
     } else {
-      console.log(`Currently serving port ${process.env.PORT}`);
+      console.log(`Currently serving port ${process.env.HTML_SERVER_PORT}`);
     }
   });
 });

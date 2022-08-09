@@ -1,13 +1,8 @@
-const { ApolloServer, gql } = require('apollo-server');
+const { ApolloServer } = require('apollo-server');
+const typeDefs = require('./controller/schema');
+const resolvers = require('./controller/resolvers');
 
-// Maybe move both schema and resolvers to other files for separation of concerns
-// Define schema
-const typeDefs = gql``;
-
-// Define resolver functions
-const resolvers = {
-
-};
+require('dotenv').config();
 
 // Create server instance
 const server = new ApolloServer({
@@ -18,7 +13,7 @@ const server = new ApolloServer({
 });
 
 server.listen({
-  host: '/api/collection',
+  port: process.env.API_SERVER_PORT,
 })
   .then(({ url }) => {
     console.log(`ApolloServer ready at ${url}`);

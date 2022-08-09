@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "nodemon server/index.js",
+    "start": "nodemon server_HTML/index.js",
+    "server_api": "nodemon server_API/index.js",
     "lint": "next lint"
   },
   "repository": {
