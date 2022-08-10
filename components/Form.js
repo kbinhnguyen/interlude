@@ -12,6 +12,7 @@ function Form({ searchClicked, setSearchClicked }) {
     setSearchClicked(!searchClicked);
     setQuerySong('');
     setQueryArtists('');
+    // router.reload(); // this line of code is for SSR of Me page
   };
 
   return (
