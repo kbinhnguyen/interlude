@@ -1,14 +1,12 @@
 import { useState } from 'react';
-import graphQLClient from '../components/ApolloClient';
 
-function Form({ searchClicked, setSearchClicked }) {
+function Form({ searchClicked, setSearchClicked, handleSearch }) {
   const [querySong, setQuerySong] = useState('');
   const [queryArtists, setQueryArtists] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Search was clicked');
-    // need to call API here still
+    handleSearch(querySong, queryArtists);
     setSearchClicked(!searchClicked);
     setQuerySong('');
     setQueryArtists('');

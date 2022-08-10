@@ -11,11 +11,12 @@ import Form from '../components/Form';
 function Me() {
   const client = useApolloClient();
   const [searchClicked, setSearchClicked] = useState(false);
-  const [tracks, setTracks] = useState([]);
+  const [favTracks, setFavTracks] = useState([]);
   const [user, setUser] = useState({
     avatar: '',
     username: '',
-  })
+  });
+  const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
     client.query({
@@ -33,16 +34,33 @@ function Me() {
       `,
     })
       .then((results) => {
-        console.log(results);
-        console.log(results.data.user.tracks_liked);
-        setTracks(results.data.user.tracks_liked);
+        setFavTracks(results.data.user.tracks_liked);
         setUser({
           avatar: results.data.user.img_url,
           username: results.data.user.username,
         });
-      })
-      .catch((err) => {console.log(err); });
-  }, [client, searchClicked]);
+      });
+  }, [client]);
+
+  const handleSearch = (querySong, queryArtists) => {
+    client.query({
+      query: gql`query Query {
+        externalTracks(queryString: "artist:${queryArtists} track:${querySong}") {
+          id
+          title
+          img_url
+          artists
+          preview
+          uri
+        }
+      }
+      `,
+    })
+      .then((results) => {
+        console.log(results.data.externalTracks);
+        setSearchResults(results.data.externalTracks);
+      });
+  };
 
   return (
     <>
@@ -50,8 +68,12 @@ function Me() {
       {user.avatar
         && (<Image src={user.avatar} alt={user.username} width={200} height={200} objectFit="cover" />)}
       {user.username && <h3>{user.username}</h3>}
-      <Form searchClicked={searchClicked} setSearchClicked={setSearchClicked} />
-      {tracks && (<Collage tracks={tracks} />)}
+      <Form
+        searchClicked={searchClicked}
+        setSearchClicked={setSearchClicked}
+        handleSearch={handleSearch}
+      />
+      {favTracks && (<Collage tracks={favTracks} />)}
     </>
   );
 }
