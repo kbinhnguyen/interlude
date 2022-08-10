@@ -10,7 +10,7 @@ function Form({ searchClicked, setSearchClicked, handleSearch }) {
     setSearchClicked(!searchClicked);
     setQuerySong('');
     setQueryArtists('');
-    // router.reload(); // this line of code is for SSR of Me page
+    // router.reload(); // this line of code is for SSR of Me page, will force a HARD reload of page
   };
 
   return (
