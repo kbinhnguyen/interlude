@@ -11,16 +11,21 @@ const typeDefs = gql`
   type Track {
     id: ID!
     title: String!
-    artists: String!
+    artists: [String!]
     img_url: String!
     preview: String
     uri: String!
   }
 
+  type externalTracks {
+    tracks: [Track!]
+  }
+
   type Query {
     allUsers: [User!]!
     user(id: ID): User
-    searchATrack(title: String!, artists: String!): [Track!]
+    externalTracks(queryString: String!): [Track!]
+    track(title: String!, artists: String!): [Track!]
   }
 
   type Mutation {
