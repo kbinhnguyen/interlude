@@ -45,12 +45,11 @@ function Me() {
   );
 }
 
-
 // (Can also use getInitialProps to trigger SSR on first load & CSR
 // on subsequent loads - however, unsure how to force page reload after
 // form submission with this approach)
-// SSR-only approach, remember to use router in Form
 
+// SSR-only approach, remember to use router in Form
 /*
 function Me({ tracks }) {
   const [searchClicked, setSearchClicked] = useState(false);
@@ -89,4 +88,5 @@ export async function getServerSideProps() {
   return { props: { tracks: data.user.tracks_liked } };
 }
 */
+
 export default Me;

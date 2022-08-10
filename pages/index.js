@@ -1,11 +1,21 @@
 import { gql } from '@apollo/client';
 import graphQLClient from '../components/ApolloClient';
+import UserOnFeed from '../components/UserOnFeed';
 
 function Feed({ users }) {
   return (
     <>
       <h1>Welcome to the Project!</h1>
-      <ul>{users.map((user) => (<li key={user.username}>{user.username}</li>))}</ul>
+      <div>
+        {users.map((user) => (
+          <UserOnFeed
+            key={user.username}
+            username={user.username}
+            img_url={user.img_url}
+            id={user.id}
+          />
+        ))}
+      </div>
     </>
   );
 }
@@ -15,6 +25,7 @@ export async function getServerSideProps() {
   const { data } = await client.query({
     query: gql`query Query {
       allUsers {
+        id
         username
         img_url
       }
