@@ -45,7 +45,12 @@ const resolvers = {
         })
         .then((res) => {
           if (res.data.tracks.total === 0) {
-            return null;
+            const finalReturnToClient = {
+              tracks: null,
+              previous: null,
+              next: null,
+            };
+            return finalReturnToClient;
           }
           const results = res.data.tracks.items;
           const returnToClient = [];
@@ -69,7 +74,8 @@ const resolvers = {
           });
           const finalReturnToClient = {
             tracks: returnToClient,
-            total: res.data.tracks.total,
+            previous: res.data.tracks.previous,
+            next: res.data.tracks.next,
           };
           return finalReturnToClient;
         });

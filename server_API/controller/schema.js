@@ -19,7 +19,8 @@ const typeDefs = gql`
 
   type ExternalTracks {
     tracks: [Track!]
-    total: Int!
+    previous: String
+    next: String
   }
 
   type Query {

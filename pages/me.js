@@ -18,7 +18,8 @@ function Me() {
     username: '',
   });
   const [searchResults, setSearchResults] = useState([]);
-  const [searchResCount, setSearchResCount] = useState(0);
+  const [nextAPILink, setNextAPILink] = useState('');
+  const [prevAPILink, setPrevAPILink] = useState('');
 
   useEffect(() => {
     client.query({
@@ -55,19 +56,24 @@ function Me() {
             preview
             uri
           }
-          total
+          previous
+          next
         }
       }
       `,
     })
       .then((results) => {
         setSearchResults(results.data.externalTracks.tracks);
-        setSearchResCount(results.data.externalTracks.total);
+        setPrevAPILink(results.data.externalTracks.previous);
+        setNextAPILink(results.data.externalTracks.next);
       });
   };
 
   return (
     <>
+        {console.log(prevAPILink === null)}
+
+    {console.log('next:', nextAPILink)}
       <h1>This is my personal space!</h1>
       {user.avatar
         && (<Image src={user.avatar} alt={user.username} width={200} height={200} objectFit="cover" />)}
