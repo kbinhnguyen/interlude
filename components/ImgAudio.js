@@ -17,8 +17,8 @@ function ImgAudio({ track }) {
         key={track.title}
         src={track.img_url}
         alt={track.title}
-        width={400}
-        height={400}
+        width={200}
+        height={200}
         onMouseOver={onImgHover}
         onMouseLeave={onImgUnHover}
       />

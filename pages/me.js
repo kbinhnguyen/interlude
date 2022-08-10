@@ -1,6 +1,7 @@
 import { gql, useApolloClient } from '@apollo/client';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import graphQLClient from '../components/ApolloClient';
 import Collage from '../components/Collage';
 import Form from '../components/Form';
@@ -11,11 +12,17 @@ function Me() {
   const client = useApolloClient();
   const [searchClicked, setSearchClicked] = useState(false);
   const [tracks, setTracks] = useState([]);
+  const [user, setUser] = useState({
+    avatar: '',
+    username: '',
+  })
 
   useEffect(() => {
     client.query({
       query: gql`query Query {
         user(id: 3) {
+          username
+          img_url
           tracks_liked {
             title
             img_url
@@ -29,6 +36,10 @@ function Me() {
         console.log(results);
         console.log(results.data.user.tracks_liked);
         setTracks(results.data.user.tracks_liked);
+        setUser({
+          avatar: results.data.user.img_url,
+          username: results.data.user.username,
+        });
       })
       .catch((err) => {console.log(err); });
   }, [client, searchClicked]);
@@ -36,6 +47,9 @@ function Me() {
   return (
     <>
       <h1>This is my personal space!</h1>
+      {user.avatar
+        && (<Image src={user.avatar} alt={user.username} width={200} height={200} objectFit="cover" />)}
+      {user.username && <h3>{user.username}</h3>}
       <Form searchClicked={searchClicked} setSearchClicked={setSearchClicked} />
       {tracks && (<Collage tracks={tracks} />)}
     </>
