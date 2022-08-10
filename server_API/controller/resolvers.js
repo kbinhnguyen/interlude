@@ -67,7 +67,11 @@ const resolvers = {
             };
             returnToClient.push(track);
           });
-          return returnToClient;
+          const finalReturnToClient = {
+            tracks: returnToClient,
+            total: res.data.tracks.total,
+          };
+          return finalReturnToClient;
         });
     },
   },
@@ -81,3 +85,19 @@ const resolvers = {
 };
 
 module.exports = resolvers;
+
+/*
+Note that the resolver for field 'tracks_liked' of
+the User type here is for demonstrative purpose of
+how GraphQL resolver functions work (it resolves all
+available fields for the User type first, then if the
+schema and query include a field that wasn't found
+in the first default resolution, it will look for a
+specific resolver for the field that wasn't included
+for that type). To handle web-level traffic, the resolution
+time for this approach is suboptimal as opposed to combining
+the resolution for each type into a single query in the database.
+In this example, if I'm requesting info for 4 users, the server
+will have to make 5 queries to the database (1 for getAll,
+and 1 of each of getAllTracksLikedByUser for each user).
+*/

@@ -17,14 +17,15 @@ const typeDefs = gql`
     uri: String!
   }
 
-  type externalTracks {
+  type ExternalTracks {
     tracks: [Track!]
+    total: Int!
   }
 
   type Query {
     allUsers: [User!]!
     user(id: ID): User
-    externalTracks(queryString: String!): [Track!]
+    externalTracks(queryString: String!): ExternalTracks!
     track(title: String!, artists: String!): [Track!]
   }
 

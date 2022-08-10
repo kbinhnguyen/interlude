@@ -18,6 +18,7 @@ function Me() {
     username: '',
   });
   const [searchResults, setSearchResults] = useState([]);
+  const [searchResCount, setSearchResCount] = useState(0);
 
   useEffect(() => {
     client.query({
@@ -46,19 +47,22 @@ function Me() {
     client.query({
       query: gql`query Query {
         externalTracks(queryString: "artist:${queryArtists} track:${querySong}") {
-          id
-          title
-          img_url
-          artists
-          preview
-          uri
+          tracks {
+            id
+            title
+            img_url
+            artists
+            preview
+            uri
+          }
+          total
         }
       }
       `,
     })
       .then((results) => {
-        console.log(results.data.externalTracks);
-        setSearchResults(results.data.externalTracks);
+        setSearchResults(results.data.externalTracks.tracks);
+        setSearchResCount(results.data.externalTracks.total);
       });
   };
 
