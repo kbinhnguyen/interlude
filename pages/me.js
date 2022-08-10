@@ -5,6 +5,7 @@ import Image from 'next/image';
 import graphQLClient from '../components/ApolloClient';
 import Collage from '../components/Collage';
 import Form from '../components/Form';
+import SearchRes from '../components/SearchRes';
 
 // CSR-only APPROACH
 
@@ -25,7 +26,6 @@ function Me() {
           username
           img_url
           tracks_liked {
-            title
             img_url
             preview
           }
@@ -73,6 +73,7 @@ function Me() {
         setSearchClicked={setSearchClicked}
         handleSearch={handleSearch}
       />
+      <SearchRes searchResults={searchResults} />
       {favTracks && (<Collage tracks={favTracks} />)}
     </>
   );
