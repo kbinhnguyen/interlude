@@ -2,6 +2,9 @@
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
+  images: {
+    domains: ['i.scdn.co', 'images.unsplash.com'],
+  },
   reactStrictMode: false,
   webpack: (config) => {
     config.resolve.fallback = {

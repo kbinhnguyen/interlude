@@ -1,17 +1,10 @@
+import Image from 'next/image';
+
 function UserOnFeed({ id, username, img_url }) {
   return (
     <div>
-      <img src={img_url} alt={username} />
+      <Image src={img_url} alt={username} width={200} height={200} objectFit="cover" />
       <h3>{username}</h3>
-      <style jsx>
-        {`
-          img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-          }
-        `}
-      </style>
     </div>
   );
 }

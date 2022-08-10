@@ -1,8 +1,9 @@
 import { gql, useApolloClient } from '@apollo/client';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import Form from '../components/Form';
 import graphQLClient from '../components/ApolloClient';
+import Collage from '../components/Collage';
+import Form from '../components/Form';
 
 // CSR-only APPROACH
 
@@ -12,17 +13,13 @@ function Me() {
   const [tracks, setTracks] = useState([]);
 
   useEffect(() => {
-    console.log('Me was rendered');
     client.query({
       query: gql`query Query {
-        user(id: 1) {
+        user(id: 3) {
           tracks_liked {
-            id
             title
-            artists
             img_url
             preview
-            uri
           }
         }
       }
@@ -39,8 +36,8 @@ function Me() {
   return (
     <>
       <h1>This is my personal space!</h1>
-      {console.log(searchClicked)}
       <Form searchClicked={searchClicked} setSearchClicked={setSearchClicked} />
+      {tracks && (<Collage tracks={tracks} />)}
     </>
   );
 }
