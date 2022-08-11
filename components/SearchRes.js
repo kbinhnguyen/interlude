@@ -73,7 +73,7 @@ function SearchRes({ searchResults, selectingFavTrack, setSelectingFavTrack }) {
           {selectingFavTrack && (searchResults.map((result) => (
             <li className="options" key={result.id}>
               {result.preview
-                && !playing
+                && (!playing || (playing && selectedTrackToPlay.id !== result.id))
                 && (
                   <BsFillPlayCircleFill
                     size={15}
@@ -86,8 +86,7 @@ function SearchRes({ searchResults, selectingFavTrack, setSelectingFavTrack }) {
                     }}
                   />
                 )}
-              {result.preview
-              && playing
+              {result.preview && playing && selectedTrackToPlay.id === result.id
               && (
                 <BsFillPauseCircleFill
                   size={15}
