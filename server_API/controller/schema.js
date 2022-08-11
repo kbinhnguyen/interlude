@@ -25,7 +25,7 @@ const typeDefs = gql`
 
   type Query {
     allUsers: [User!]!
-    user(id: ID): User
+    user(id: ID!): User
     externalTracks(queryString: String!): ExternalTracks!
     track(title: String!, artists: String!): [Track!]
   }

@@ -1,19 +1,34 @@
 import { gql } from '@apollo/client';
+import Link from 'next/link';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
 import graphQLClient from '../components/ApolloClient';
-import UserOnFeed from '../components/UserOnFeed';
 
 function Feed({ users }) {
+  // const router = useRouter();
+  // const navigateToUser = (username, id) => {
+  //   console.log('------->', id);
+  //   router.push({
+  //     pathname: `/${username}`,
+  //     query: {
+  //       id
+  //     },
+  //   }, `/${username}`);
+  // };
+
   return (
     <>
       <h1>Welcome to the Project!</h1>
       <div>
         {users.map((user) => (
-          <UserOnFeed
-            key={user.username}
-            username={user.username}
-            img_url={user.img_url}
-            id={user.id}
-          />
+          <div key={user.username}>
+            <Link href={`/user/?id=${user.id}`} as={`/user/${user.id}`}>
+              <a>
+                <Image src={user.img_url} alt={user.username} width={200} height={200} objectFit="cover" />
+              </a>
+            </Link>
+            <h3>{user.username}</h3>
+          </div>
         ))}
       </div>
     </>

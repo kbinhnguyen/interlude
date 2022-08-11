@@ -9,11 +9,10 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   const server = express();
   /* define dynamic page routing here later
-  example:
+  */
   server.get('/user/:id', (req, res) => {
     app.render(req, res, '/user', { id: req.params.id });
   });
-  */
 
   // hand rendering control of all other pages over to NextJS
   server.get('*', (req, res) => (handle(req, res)));
