@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
-function Form({ searchClicked, setSearchClicked, handleSearch }) {
+function Form({ searchClicked, setSearchClicked, handleInitialSearch }) {
   const [querySong, setQuerySong] = useState('');
   const [queryArtists, setQueryArtists] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleSearch(querySong, queryArtists);
+    handleInitialSearch(querySong, queryArtists);
     setSearchClicked(!searchClicked);
     setQuerySong('');
     setQueryArtists('');

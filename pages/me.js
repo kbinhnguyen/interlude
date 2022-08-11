@@ -20,6 +20,7 @@ function Me() {
   const [searchResults, setSearchResults] = useState([]);
   const [nextAPILink, setNextAPILink] = useState('');
   const [prevAPILink, setPrevAPILink] = useState('');
+  const [selectingFavTrack, setSelectingFavTrack] = useState(false);
 
   useEffect(() => {
     client.query({
@@ -44,7 +45,7 @@ function Me() {
       });
   }, [client]);
 
-  const handleSearch = (querySong, queryArtists) => {
+  const handleInitialSearch = (querySong, queryArtists) => {
     client.query({
       query: gql`query Query {
         externalTracks(queryString: "artist:${queryArtists} track:${querySong}") {
@@ -66,14 +67,12 @@ function Me() {
         setSearchResults(results.data.externalTracks.tracks);
         setPrevAPILink(results.data.externalTracks.previous);
         setNextAPILink(results.data.externalTracks.next);
+        setSelectingFavTrack(true);
       });
   };
 
   return (
     <>
-        {console.log(prevAPILink === null)}
-
-    {console.log('next:', nextAPILink)}
       <h1>This is my personal space!</h1>
       {user.avatar
         && (<Image src={user.avatar} alt={user.username} width={200} height={200} objectFit="cover" />)}
@@ -81,9 +80,13 @@ function Me() {
       <Form
         searchClicked={searchClicked}
         setSearchClicked={setSearchClicked}
-        handleSearch={handleSearch}
+        handleInitialSearch={handleInitialSearch}
       />
-      <SearchRes searchResults={searchResults} />
+      <SearchRes
+        searchResults={searchResults}
+        selectingFavTrack={selectingFavTrack}
+        setSelectingFavTrack={setSelectingFavTrack}
+      />
       {favTracks && (<Collage tracks={favTracks} />)}
     </>
   );
