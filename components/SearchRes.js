@@ -57,7 +57,6 @@ function SearchRes({
       .then((results) => {
         setFavTracks([results.data.likeATrack].concat(favTracks));
         setFavTrack(null);
-        // setSelectedTrackToPlay(null);
         setSearchResults([]);
       });
   };

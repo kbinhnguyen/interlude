@@ -10,7 +10,7 @@ function CustomApp({ Component, pageProps }) {
       <style jsx global>
         {`
           .navbar {
-            background-color: grey;
+            background-color: #4B3F72;
             display: flex;
             justify-content: space-between;
             padding: 1rem;

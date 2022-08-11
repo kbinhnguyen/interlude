@@ -6,9 +6,18 @@ import Collage from '../components/Collage';
 function User({ userData }) {
   return (
     <>
-      <Image src={userData.img_url} alt={userData.username} width={200} height={200} objectFit="cover" />
-      <h3>{userData.username}</h3>
+      <div className="user-profile">
+        <Image src={userData.img_url} alt={userData.username} width={200} height={200} objectFit="cover" />
+        <h3>{userData.username}</h3>
+      </div>
       <Collage tracks={userData.tracks_liked} />
+      <style jsx>
+        {`
+          .user-profile {
+            margin-top: 3rem;
+          }
+        `}
+      </style>
     </>
   );
 }

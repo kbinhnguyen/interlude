@@ -22,8 +22,6 @@ function Me() {
     next: '',
     prev: '',
   });
-  const [nextAPILink, setNextAPILink] = useState('');
-  const [prevAPILink, setPrevAPILink] = useState('');
   const [selectingFavTrack, setSelectingFavTrack] = useState(false);
 
   useEffect(() => {
@@ -80,24 +78,68 @@ function Me() {
 
   return (
     <>
-      <h1>This is my personal space!</h1>
-      {user.avatar
-        && (<Image src={user.avatar} alt={user.username} width={200} height={200} objectFit="cover" />)}
-      {user.username && <h3>{user.username}</h3>}
-      <Form
-        searchClicked={searchClicked}
-        setSearchClicked={setSearchClicked}
-        handleInitialSearch={handleInitialSearch}
-      />
-      <SearchRes
-        searchResults={searchResults}
-        selectingFavTrack={selectingFavTrack}
-        setSelectingFavTrack={setSelectingFavTrack}
-        favTracks={favTracks}
-        setFavTracks={setFavTracks}
-        setSearchResults={setSearchResults}
-      />
-      {favTracks && (<Collage tracks={favTracks} />)}
+      <div className="me-page">
+        <div className="user-profile">
+          <div className="avatar">
+            {user.avatar
+            && (<Image className="avatar" src={user.avatar} alt={user.username} width={200} height={200} objectFit="cover" />)}
+          </div>
+          <div className="side-profile">
+            {user.username && <h2 className="text">{`♯ ${user.username}`}</h2>}
+            <h4 className="text">Howdy! Which tune best describes your mood now? 💭</h4>
+            <Form
+              searchClicked={searchClicked}
+              setSearchClicked={setSearchClicked}
+              handleInitialSearch={handleInitialSearch}
+            />
+            <SearchRes
+              searchResults={searchResults}
+              selectingFavTrack={selectingFavTrack}
+              setSelectingFavTrack={setSelectingFavTrack}
+              favTracks={favTracks}
+              setFavTracks={setFavTracks}
+              setSearchResults={setSearchResults}
+            />
+          </div>
+        </div>
+        {favTracks && (<Collage tracks={favTracks} />)}
+      </div>
+      <style jsx>
+        {`
+          .me-page {
+            display: grid;
+            grid-auto-rows: max-content;
+          }
+          .user-profile {
+            display: grid;
+            grid-template-columns: 3fr 6fr;
+            height: 300px;
+            width: 80%;
+            justify-self: center;
+            margin-top: 3rem;
+            align-items: start;
+            background: #FFC857;
+          }
+          .side-profile {
+            width: 90%;
+            align-self: center;
+            display: grid;
+            grid-template-rows: max-content max-content max-content 100px;
+            gap: 15px;
+          }
+          .avatar {
+            border-radius: 50%;
+            overflow: hidden;
+            width: 200px;
+            height: 200px;
+            justify-self: center;
+            align-self: center;
+          }
+          .text {
+            margin: 0;
+          }
+        `}
+      </style>
     </>
   );
 }

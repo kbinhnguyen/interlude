@@ -6,7 +6,7 @@ import graphQLClient from '../components/ApolloClient';
 function Feed({ users }) {
   return (
     <>
-      <h1>Welcome to the Project!</h1>
+      <h3>🎧 Check out what the community is listening to!</h3>
       <div>
         {users.map((user) => (
           <div key={user.username}>
