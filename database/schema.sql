@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS users_tracks (
   track_id VARCHAR(255) NOT NULL REFERENCES tracks(id)
 );
 
+CREATE INDEX track_index_on_tracks ON tracks(id);
 CREATE INDEX user_index_on_usertrack ON users_tracks (user_id);
 CREATE INDEX track_index_on_usertrack ON users_tracks (track_id);
 

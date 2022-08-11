@@ -102,8 +102,9 @@ in the first default resolution, it will look for a
 specific resolver for the field that wasn't included
 for that type). To handle web-level traffic, the resolution
 time for this approach is suboptimal as opposed to combining
-the resolution for each type into a single query in the database.
-In this example, if I'm requesting info for 4 users, the server
-will have to make 5 queries to the database (1 for getAll,
-and 1 of each of getAllTracksLikedByUser for each user).
+the resolution for all fields of that type into a single query
+in the database. In this example, if I'm requesting info for
+4 users, the server will have to make 5 queries to the database
+(1 for getAll, and 1 of each of getAllTracksLikedByUser for
+each user).
 */

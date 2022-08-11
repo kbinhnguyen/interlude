@@ -32,7 +32,8 @@ function SearchRes({ searchResults, selectingFavTrack, setSelectingFavTrack }) {
   if (searchResults && searchResults.length > 0) {
     return (
       <>
-      {console.log('playing: ', playing, 'currRef: ', currRef)}
+      {console.log(favTrack)}
+      {/* {console.log('playing: ', playing, 'currRef: ', currRef)} */}
         <ul className="searchList">
           {/* collapsed view */}
           {!selectingFavTrack && favTrack && (

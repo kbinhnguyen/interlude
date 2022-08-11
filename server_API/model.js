@@ -24,4 +24,12 @@ const getOneUser = (id) => {
   return pool.query(query, values);
 };
 
-module.exports = { getAllTracksLikedByUser, getAllUsers, getOneUser };
+const addFavTrack = ({ userId, trackId, title, artists, imgUrl, preview, uri }) => {
+  const query = `WITH inserted AS (INSERT INTO tracks (id, title, artists, img_url,
+    preview, uri) VALUES ($1, $2, $3, $4, $5, $6) ON CONFLICT (id) DO NOTHING)
+    INSERT INTO users_tracks (user_id, track_id) VALUES ($7, $1)`;
+  const values = [trackId, title, artists, imgUrl, preview, uri, userId];
+  return pool.query(query, values);
+};
+
+module.exports = { getAllTracksLikedByUser, getAllUsers, getOneUser, addFavTrack };
