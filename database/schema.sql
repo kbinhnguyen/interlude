@@ -23,7 +23,8 @@ CREATE TABLE IF NOT EXISTS tracks (
 CREATE TABLE IF NOT EXISTS users_tracks (
   id SERIAL PRIMARY KEY,
   user_id INTEGER NOT NULL REFERENCES users(id),
-  track_id VARCHAR(255) NOT NULL REFERENCES tracks(id)
+  track_id VARCHAR(255) NOT NULL REFERENCES tracks(id),
+  UNIQUE (user_id, track_id)
 );
 
 CREATE INDEX track_index_on_tracks ON tracks(id);

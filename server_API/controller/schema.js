@@ -11,7 +11,7 @@ const typeDefs = gql`
   type Track {
     id: ID!
     title: String!
-    artists: [String!]
+    artists: [String!]!
     img_url: String!
     preview: String
     uri: String!
@@ -31,7 +31,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    likeATrack(id: ID!, title: String!, artists: String!, img_url: String!, preview: String, uri: String!): [Track!]!
+    likeATrack(userId: ID!, trackId: ID!, title: String!, artists: [String!]!, imgUrl: String!, preview: String, uri: String!): Track
   }
 `;
 

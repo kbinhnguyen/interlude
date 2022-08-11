@@ -24,12 +24,18 @@ const getOneUser = (id) => {
   return pool.query(query, values);
 };
 
-const addFavTrack = ({ userId, trackId, title, artists, imgUrl, preview, uri }) => {
-  const query = `WITH inserted AS (INSERT INTO tracks (id, title, artists, img_url,
-    preview, uri) VALUES ($1, $2, $3, $4, $5, $6) ON CONFLICT (id) DO NOTHING)
-    INSERT INTO users_tracks (user_id, track_id) VALUES ($7, $1)`;
-  const values = [trackId, title, artists, imgUrl, preview, uri, userId];
+const addFavTrack = ({
+  userId, trackId, title, artists, imgUrl, preview, uri,
+}) => {
+  const query = `WITH insert1 AS (INSERT INTO users_tracks (user_id, track_id)
+  VALUES ($1, $2) ON CONFLICT (user_id, track_id) DO NOTHING),
+  insert2 AS (INSERT INTO tracks (id, title, artists, img_url, preview, uri)
+    VALUES ($2, $3, $4, $5, $6, $7) ON CONFLICT (id) DO NOTHING RETURNING *)
+  SELECT * FROM insert2 UNION SELECT * FROM tracks where id = $2`;
+  const values = [userId, trackId, title, artists, imgUrl, preview, uri];
   return pool.query(query, values);
 };
 
-module.exports = { getAllTracksLikedByUser, getAllUsers, getOneUser, addFavTrack };
+module.exports = {
+  getAllTracksLikedByUser, getAllUsers, getOneUser, addFavTrack,
+};
