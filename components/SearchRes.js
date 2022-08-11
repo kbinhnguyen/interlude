@@ -3,7 +3,7 @@ import { gql, useApolloClient } from '@apollo/client';
 import { BsFillPauseCircleFill, BsFillPlayCircleFill } from 'react-icons/bs';
 
 function SearchRes({
-  searchResults, selectingFavTrack, setSelectingFavTrack, favTracks, setFavTracks,
+  searchResults, selectingFavTrack, setSelectingFavTrack, favTracks, setFavTracks, setSearchResults
 }) {
   const [currRef, setCurrRef] = useState(null);
   const [selectedTrackToPlay, setSelectedTrackToPlay] = useState(null);
@@ -56,6 +56,9 @@ function SearchRes({
     })
       .then((results) => {
         setFavTracks([results.data.likeATrack].concat(favTracks));
+        setFavTrack(null);
+        // setSelectedTrackToPlay(null);
+        setSearchResults([]);
       });
   };
 
@@ -142,7 +145,8 @@ function SearchRes({
             </li>
           )))}
         </ul>
-        <button type="button" onClick={handleAddFav}>Add to your collection!</button>
+        {!favTrack && (<button type="button">Add to your collection!</button>)}
+        {favTrack && (<button type="button" onClick={handleAddFav}>Add to your collection!</button>)}
         <style jsx>
           {`
             li {
