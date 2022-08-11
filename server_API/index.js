@@ -13,7 +13,7 @@ const server = new ApolloServer({
 });
 
 server.listen({
-  port: process.env.API_SERVER_PORT,
+  port: process.env.API_SERVER_PORT || 4320,
 })
   .then(({ url }) => {
     console.log(`ApolloServer ready at ${url}`);

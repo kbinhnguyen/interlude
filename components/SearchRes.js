@@ -1,13 +1,16 @@
 import { useState, useEffect, useRef } from 'react';
+import { gql, useApolloClient } from '@apollo/client';
 import { BsFillPauseCircleFill, BsFillPlayCircleFill } from 'react-icons/bs';
 
-function SearchRes({ searchResults, selectingFavTrack, setSelectingFavTrack }) {
+function SearchRes({
+  searchResults, selectingFavTrack, setSelectingFavTrack, favTracks, setFavTracks,
+}) {
   const [currRef, setCurrRef] = useState(null);
   const [selectedTrackToPlay, setSelectedTrackToPlay] = useState(null);
   const [favTrack, setFavTrack] = useState(null);
   const [playing, setPlaying] = useState(false);
   const sound = useRef(null);
-  const soundCollapsed = useRef(null);
+  const client = useApolloClient();
 
   useEffect(() => {
     setCurrRef(null);
@@ -35,6 +38,25 @@ function SearchRes({ searchResults, selectingFavTrack, setSelectingFavTrack }) {
       currRef.pause();
       setPlaying(false);
     }
+  };
+
+  const handleAddFav = () => {
+    client.mutate({
+      mutation: gql`mutation Mutation {
+        likeATrack(userId: 3, trackId: "${favTrack.id}", title: "${favTrack.title}", artists: "${favTrack.artists}", imgUrl: "${favTrack.img_url}", uri: "${favTrack.uri}", preview: "${favTrack.preview}") {
+          id
+          title
+          artists
+          img_url
+          preview
+          uri
+        }
+      }
+      `,
+    })
+      .then((results) => {
+        setFavTracks([results.data.likeATrack].concat(favTracks));
+      });
   };
 
   if (searchResults && searchResults.length > 0) {
@@ -120,7 +142,7 @@ function SearchRes({ searchResults, selectingFavTrack, setSelectingFavTrack }) {
             </li>
           )))}
         </ul>
-        <button type="button">Add to your collection!</button>
+        <button type="button" onClick={handleAddFav}>Add to your collection!</button>
         <style jsx>
           {`
             li {

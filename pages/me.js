@@ -87,6 +87,8 @@ function Me() {
         searchResults={searchResults}
         selectingFavTrack={selectingFavTrack}
         setSelectingFavTrack={setSelectingFavTrack}
+        favTracks={favTracks}
+        setFavTracks={setFavTracks}
       />
       {favTracks && (<Collage tracks={favTracks} />)}
     </>

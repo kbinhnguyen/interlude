@@ -8,7 +8,7 @@ const pool = new Pool({
 const getAllTracksLikedByUser = (id) => {
   const query = `SELECT track_id AS id, title, artists, img_url, preview, uri
   FROM tracks RIGHT OUTER JOIN users_tracks ON tracks.id = users_tracks.track_id
-  WHERE users_tracks.user_id = $1`;
+  WHERE users_tracks.user_id = $1 ORDER BY users_tracks.id DESC`;
   const values = [id];
   return pool.query(query, values);
 };
