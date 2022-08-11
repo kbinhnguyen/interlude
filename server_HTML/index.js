@@ -8,8 +8,8 @@ const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
   const server = express();
-  /* define dynamic page routing here later
-  */
+
+  // define dynamic page routing
   server.get('/user/:id', (req, res) => {
     app.render(req, res, '/user', { id: req.params.id });
   });

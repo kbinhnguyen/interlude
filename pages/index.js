@@ -1,21 +1,9 @@
 import { gql } from '@apollo/client';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 import graphQLClient from '../components/ApolloClient';
 
 function Feed({ users }) {
-  // const router = useRouter();
-  // const navigateToUser = (username, id) => {
-  //   console.log('------->', id);
-  //   router.push({
-  //     pathname: `/${username}`,
-  //     query: {
-  //       id
-  //     },
-  //   }, `/${username}`);
-  // };
-
   return (
     <>
       <h1>Welcome to the Project!</h1>
