@@ -15,7 +15,6 @@ function SearchRes({ searchResults, selectingFavTrack, setSelectingFavTrack }) {
   }, [searchResults, selectingFavTrack]);
 
   useEffect(() => {
-    console.log('I was called');
     setCurrRef(sound.current);
   }, [selectedTrackToPlay]);
 
@@ -25,12 +24,6 @@ function SearchRes({ searchResults, selectingFavTrack, setSelectingFavTrack }) {
       setPlaying(true);
     }
   }, [currRef, playing]);
-
-  // useEffect(() => {
-  //   if (currRef & playing) {
-  //     currRef.play();
-  //   }
-  // }, [playing]);
 
   const handleSelectFav = (track) => {
     setFavTrack(track);
@@ -47,8 +40,6 @@ function SearchRes({ searchResults, selectingFavTrack, setSelectingFavTrack }) {
   if (searchResults && searchResults.length > 0) {
     return (
       <>
-            {console.log('currRef: ', currRef, 'playing: ', playing)}
-
         <ul className="searchList">
           {/* collapsed view */}
           {!selectingFavTrack && favTrack && (
@@ -81,7 +72,12 @@ function SearchRes({ searchResults, selectingFavTrack, setSelectingFavTrack }) {
               {selectedTrackToPlay
                 && selectedTrackToPlay.id === favTrack.id
                 && (
-                  <audio src={favTrack.preview} ref={sound} />)}
+                  <audio
+                    src={favTrack.preview}
+                    ref={sound}
+                    onEnded={() => { setPlaying(false); }}
+                  />
+                )}
             </li>
           )}
 
@@ -115,7 +111,12 @@ function SearchRes({ searchResults, selectingFavTrack, setSelectingFavTrack }) {
               {selectedTrackToPlay
                 && selectedTrackToPlay.id === result.id
                 && (
-                  <audio src={result.preview} ref={sound} />)}
+                <audio
+                  src={result.preview}
+                  ref={sound}
+                  onEnded={() => { setPlaying(false); }}
+                />
+                )}
             </li>
           )))}
         </ul>
