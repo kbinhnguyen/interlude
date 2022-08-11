@@ -3,13 +3,12 @@ import { gql } from '@apollo/client';
 import graphQLClient from '../components/ApolloClient';
 import Collage from '../components/Collage';
 
-function User({ id, user }) {
+function User({ userData }) {
   return (
     <>
-      <p>{`My id is ${id}`}</p>
-      <Image src={user.img_url} alt={user.username} width={200} height={200} objectFit="cover" />
-      <h3>{user.username}</h3>
-      <Collage tracks={user.tracks_liked} />
+      <Image src={userData.img_url} alt={userData.username} width={200} height={200} objectFit="cover" />
+      <h3>{userData.username}</h3>
+      <Collage tracks={userData.tracks_liked} />
     </>
   );
 }
@@ -18,7 +17,7 @@ User.getInitialProps = async ({ query }) => {
   const client = graphQLClient;
   const { data } = await client.query({
     query: gql`query Query {
-      user(id: ${query.id}) {
+      user(username: "${query.username}") {
         username
         img_url
         tracks_liked {
@@ -30,7 +29,7 @@ User.getInitialProps = async ({ query }) => {
     }
     `,
   });
-  return { ...query, user: data.user };
+  return { userData: data.user };
 };
 
 export default User;

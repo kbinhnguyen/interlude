@@ -2,8 +2,7 @@ const { gql } = require('apollo-server');
 
 const typeDefs = gql`
   type User {
-    id: ID!
-    username: String!
+    username: ID!
     img_url: String
     tracks_liked: [Track!]!
   }
@@ -25,13 +24,13 @@ const typeDefs = gql`
 
   type Query {
     allUsers: [User!]!
-    user(id: ID!): User
+    user(username: ID!): User
     externalTracks(queryString: String!): ExternalTracks!
     track(title: String!, artists: String!): [Track!]
   }
 
   type Mutation {
-    likeATrack(userId: ID!, trackId: ID!, title: String!, artists: [String!]!, imgUrl: String!, preview: String, uri: String!): Track!
+    likeATrack(username: ID!, trackId: ID!, title: String!, artists: [String!]!, imgUrl: String!, preview: String, uri: String!): Track!
   }
 `;
 

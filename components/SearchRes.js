@@ -43,7 +43,7 @@ function SearchRes({
   const handleAddFav = () => {
     client.mutate({
       mutation: gql`mutation Mutation {
-        likeATrack(userId: 3, trackId: "${favTrack.id}", title: "${favTrack.title}", artists: "${favTrack.artists}", imgUrl: "${favTrack.img_url}", uri: "${favTrack.uri}", preview: "${favTrack.preview}") {
+        likeATrack(username: "binh", trackId: "${favTrack.id}", title: "${favTrack.title}", artists: "${favTrack.artists}", imgUrl: "${favTrack.img_url}", uri: "${favTrack.uri}", preview: "${favTrack.preview}") {
           id
           title
           artists

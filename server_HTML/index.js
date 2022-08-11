@@ -10,8 +10,8 @@ app.prepare().then(() => {
   const server = express();
 
   // define dynamic page routing
-  server.get('/user/:id', (req, res) => {
-    app.render(req, res, '/user', { id: req.params.id });
+  server.get('/user/:username', (req, res) => {
+    app.render(req, res, '/user', { username: req.params.username });
   });
 
   // hand rendering control of all other pages over to NextJS

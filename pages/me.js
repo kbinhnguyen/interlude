@@ -18,6 +18,10 @@ function Me() {
     username: '',
   });
   const [searchResults, setSearchResults] = useState([]);
+  const [APILinks, setAPILinks] = useState({
+    next: '',
+    prev: '',
+  });
   const [nextAPILink, setNextAPILink] = useState('');
   const [prevAPILink, setPrevAPILink] = useState('');
   const [selectingFavTrack, setSelectingFavTrack] = useState(false);
@@ -25,7 +29,7 @@ function Me() {
   useEffect(() => {
     client.query({
       query: gql`query Query {
-        user(id: 3) {
+        user(username: "binh") {
           username
           img_url
           tracks_liked {
@@ -66,8 +70,10 @@ function Me() {
     })
       .then((results) => {
         setSearchResults(results.data.externalTracks.tracks);
-        setPrevAPILink(results.data.externalTracks.previous);
-        setNextAPILink(results.data.externalTracks.next);
+        setAPILinks({
+          prev: results.data.externalTracks.previous,
+          next: results.data.externalTracks,
+        });
         setSelectingFavTrack(true);
       });
   };

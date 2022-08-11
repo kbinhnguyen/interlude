@@ -13,8 +13,8 @@ const resolvers = {
         .then((results) => (results.rows));
     },
 
-    user(_, { id }) {
-      return getOneUser(Number(id))
+    user(_, { username }) {
+      return getOneUser(username)
         .then((results) => (results.rows[0]));
     },
 
@@ -85,8 +85,8 @@ const resolvers = {
   },
 
   User: {
-    tracks_liked({ id }) {
-      return getAllTracksLikedByUser(Number(id))
+    tracks_liked({ username }) {
+      return getAllTracksLikedByUser(username)
         .then((results) => {
           const tracks = results.rows;
           tracks.forEach((track) => {
@@ -99,10 +99,10 @@ const resolvers = {
 
   Mutation: {
     likeATrack(_, {
-      userId, trackId, title, artists, imgUrl, preview, uri,
+      username, trackId, title, artists, imgUrl, preview, uri,
     }) {
       return addFavTrack({
-        userId: Number(userId), trackId, title, artists: artists.join(', '), imgUrl, preview, uri,
+        username, trackId, title, artists: artists.join(', '), imgUrl, preview, uri,
       })
         .then((results) => {
           const track = results.rows[0];

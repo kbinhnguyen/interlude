@@ -10,7 +10,7 @@ function Feed({ users }) {
       <div>
         {users.map((user) => (
           <div key={user.username}>
-            <Link href={`/user/?id=${user.id}`} as={`/user/${user.id}`}>
+            <Link href={`/user/?username=${user.username}`} as={`/user/${user.username}`}>
               <a>
                 <Image src={user.img_url} alt={user.username} width={200} height={200} objectFit="cover" />
               </a>
@@ -28,7 +28,6 @@ export async function getServerSideProps() {
   const { data } = await client.query({
     query: gql`query Query {
       allUsers {
-        id
         username
         img_url
       }
