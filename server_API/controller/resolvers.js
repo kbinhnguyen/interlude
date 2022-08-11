@@ -1,6 +1,8 @@
 const axios = require('axios');
 const qs = require('qs');
-const { getAllTracksLikedByUser, getAllUsers, getOneUser, addFavTrack } = require('../model.js');
+const {
+  getAllTracksLikedByUser, getAllUsers, getOneUser, addFavTrack,
+} = require('../model.js');
 
 require('dotenv').config();
 
@@ -85,7 +87,13 @@ const resolvers = {
   User: {
     tracks_liked({ id }) {
       return getAllTracksLikedByUser(Number(id))
-        .then((results) => (results.rows));
+        .then((results) => {
+          const tracks = results.rows;
+          tracks.forEach((track) => {
+            track.artists = track.artists.split(' ,');
+          });
+          return tracks;
+        });
     },
   },
 
