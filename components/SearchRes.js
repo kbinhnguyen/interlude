@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
-import { BsFillPlayCircleFill } from 'react-icons/bs';
+import { BsFillPauseCircleFill, BsFillPlayCircleFill } from 'react-icons/bs';
 
 function SearchRes({ searchResults, selectingFavTrack, setSelectingFavTrack }) {
   const [currRef, setCurrRef] = useState(null);
   const [selectedTrackToPlay, setSelectedTrackToPlay] = useState(null);
   const [favTrack, setFavTrack] = useState(null);
+  const [playing, setPlaying] = useState(false);
   const sound = useRef(null);
 
   useEffect(() => {
@@ -14,6 +15,7 @@ function SearchRes({ searchResults, selectingFavTrack, setSelectingFavTrack }) {
   useEffect(() => {
     if (currRef) {
       currRef.play();
+      setPlaying(true);
     }
   }, [currRef]);
 
@@ -22,19 +24,37 @@ function SearchRes({ searchResults, selectingFavTrack, setSelectingFavTrack }) {
     setSelectingFavTrack(false);
   };
 
+  const pauseMusic = () => {
+    currRef.pause();
+    setPlaying(false);
+  };
+
   if (searchResults && searchResults.length > 0) {
     return (
       <>
-      {console.log(favTrack)}
+      {console.log('playing: ', playing, 'currRef: ', currRef)}
         <ul className="searchList">
           {/* collapsed view */}
           {!selectingFavTrack && favTrack && (
             <li className="options">
               {favTrack.preview
+                && !playing
                 && (
                   <BsFillPlayCircleFill
                     size={15}
-                    onClick={() => { setSelectedTrackToPlay(favTrack); }}
+                    onClick={() => {
+                      setSelectedTrackToPlay(favTrack);
+                      setPlaying(true);
+                      currRef.play();
+                    }}
+                  />
+                )}
+                {favTrack.preview
+                && playing
+                && (
+                  <BsFillPauseCircleFill
+                    size={15}
+                    onClick={pauseMusic}
                   />
                 )}
               <div className="options-text" onClick={() => { setSelectingFavTrack(true); }}>
@@ -53,12 +73,27 @@ function SearchRes({ searchResults, selectingFavTrack, setSelectingFavTrack }) {
           {selectingFavTrack && (searchResults.map((result) => (
             <li className="options" key={result.id}>
               {result.preview
+                && !playing
                 && (
                   <BsFillPlayCircleFill
                     size={15}
-                    onClick={() => { setSelectedTrackToPlay(result); }}
+                    onClick={() => {
+                      setSelectedTrackToPlay(result);
+                      setPlaying(true);
+                      if (currRef) {
+                        currRef.play();
+                      }
+                    }}
                   />
                 )}
+              {result.preview
+              && playing
+              && (
+                <BsFillPauseCircleFill
+                  size={15}
+                  onClick={pauseMusic}
+                />
+              )}
               <div className="options-text" onClick={() => { handleSelectFav(result); }}>
                 {result.title}
                 <br />
