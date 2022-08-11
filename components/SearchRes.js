@@ -7,17 +7,30 @@ function SearchRes({ searchResults, selectingFavTrack, setSelectingFavTrack }) {
   const [favTrack, setFavTrack] = useState(null);
   const [playing, setPlaying] = useState(false);
   const sound = useRef(null);
+  const soundCollapsed = useRef(null);
 
   useEffect(() => {
+    setCurrRef(null);
+    setPlaying(false);
+  }, [searchResults, selectingFavTrack]);
+
+  useEffect(() => {
+    console.log('I was called');
     setCurrRef(sound.current);
   }, [selectedTrackToPlay]);
 
   useEffect(() => {
-    if (currRef) {
+    if (currRef && playing) {
       currRef.play();
       setPlaying(true);
     }
-  }, [currRef]);
+  }, [currRef, playing]);
+
+  // useEffect(() => {
+  //   if (currRef & playing) {
+  //     currRef.play();
+  //   }
+  // }, [playing]);
 
   const handleSelectFav = (track) => {
     setFavTrack(track);
@@ -25,13 +38,17 @@ function SearchRes({ searchResults, selectingFavTrack, setSelectingFavTrack }) {
   };
 
   const pauseMusic = () => {
-    currRef.pause();
-    setPlaying(false);
+    if (currRef) {
+      currRef.pause();
+      setPlaying(false);
+    }
   };
 
   if (searchResults && searchResults.length > 0) {
     return (
       <>
+            {console.log('currRef: ', currRef, 'playing: ', playing)}
+
         <ul className="searchList">
           {/* collapsed view */}
           {!selectingFavTrack && favTrack && (
@@ -44,7 +61,7 @@ function SearchRes({ searchResults, selectingFavTrack, setSelectingFavTrack }) {
                     onClick={() => {
                       setSelectedTrackToPlay(favTrack);
                       setPlaying(true);
-                      currRef.play();
+                      setCurrRef(sound.current);
                     }}
                   />
                 )}
@@ -79,9 +96,7 @@ function SearchRes({ searchResults, selectingFavTrack, setSelectingFavTrack }) {
                     onClick={() => {
                       setSelectedTrackToPlay(result);
                       setPlaying(true);
-                      if (currRef) {
-                        currRef.play();
-                      }
+                      setCurrRef(sound.current);
                     }}
                   />
                 )}
