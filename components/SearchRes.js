@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { gql, useApolloClient } from '@apollo/client';
 import { BsFillPauseCircleFill, BsFillPlayCircleFill } from 'react-icons/bs';
+import { RiArrowDownSFill, RiArrowUpSFill } from 'react-icons/ri';
 
 function SearchRes({
   searchResults, selectingFavTrack, setSelectingFavTrack, favTracks, setFavTracks, setSearchResults
@@ -63,7 +64,7 @@ function SearchRes({
 
   if (searchResults && searchResults.length > 0) {
     return (
-      <>
+      <div className="search-results">
         <ul className="searchList">
           {/* collapsed view */}
           {!selectingFavTrack && favTrack && (
@@ -88,11 +89,12 @@ function SearchRes({
                     onClick={pauseMusic}
                   />
                 )}
-              <div className="options-text" onClick={() => { setSelectingFavTrack(true); }}>
+              <div className="options-text collapsed" onClick={() => { setSelectingFavTrack(true); }}>
                 {favTrack.title}
                 <br />
                 {`by ${favTrack.artists.join(', ')}`}
               </div>
+              <RiArrowDownSFill onClick={() => { setSelectingFavTrack(true); }} />
               {selectedTrackToPlay
                 && selectedTrackToPlay.id === favTrack.id
                 && (
@@ -127,7 +129,7 @@ function SearchRes({
                   onClick={pauseMusic}
                 />
               )}
-              <div className="options-text" onClick={() => { handleSelectFav(result); }}>
+              <div className="options-text expanded" onClick={() => { handleSelectFav(result); }}>
                 {result.title}
                 <br />
                 {`by ${result.artists.join(', ')}`}
@@ -144,33 +146,60 @@ function SearchRes({
             </li>
           )))}
         </ul>
-        {!favTrack && (<button type="button">Add to your collection!</button>)}
-        {favTrack && (<button type="button" onClick={handleAddFav}>Add to your collection!</button>)}
+        {!favTrack && (<button type="button">Add to collection!</button>)}
+        {favTrack && (<button type="button" onClick={handleAddFav}>Add to collection!</button>)}
         <style jsx>
           {`
-            li {
+            .search-results {
+              position: relative;
               display: grid;
-              grid-template-columns: 20px 400px;
-              grid-auto-rows: max-content;
-              align-items: center;
-              gap: 5px;
+              grid-template-columns: 2fr 1fr;
             }
-            .searchList {
+            ul {
+              position: absolute;
+              z-index: 500;
               list-style-type: none;
               margin: 0;
               padding: 0;
+              height: max-content;
+              width: 100%;
+              grid-column: 1 / 2;
+            }
+            li {
+              width: 95%;
+              display: grid;
+              grid-template-columns: 1fr 15fr 1fr;
+              grid-auto-rows: max-content;
+              align-items: center;
+              justify-items: center;
             }
             .options {
               cursor: pointer;
             }
             .options-text {
-              justify-items: start;
+              margin-left: 10px;
+              justify-self: start;
+              width: 100%;
+            }
+            .collapsed {
               grid-column: 2 / 3;
             }
-
+            .expanded {
+              grid-column: 2 / 4;
+            }
+            button {
+              grid-column: 2 / 3;
+              background: #1F2041;
+              height: 30px;
+              color: white;
+              border: 1px solid white;
+              width: 75%;
+              border-radius: 15px;
+              cursor: pointer;
+            }
           `}
         </style>
-      </>
+      </div>
     );
   } else if (searchResults === null) {
     return (<h4>Sorry! Couldn't find anything for ya... 😖</h4>)

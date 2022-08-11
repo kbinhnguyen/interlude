@@ -51,7 +51,7 @@ function Form({ searchClicked, setSearchClicked, handleInitialSearch }) {
             height: 30px;
             color: white;
             border: 1px solid white;
-            width: 70%;
+            width: 75%;
             border-radius: 15px;
             cursor: pointer;
           }
