@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { gql, useApolloClient } from '@apollo/client';
 import { BsFillPauseCircleFill, BsFillPlayCircleFill } from 'react-icons/bs';
-import { RiArrowDownSFill, RiArrowUpSFill } from 'react-icons/ri';
+import { RiArrowDownSFill } from 'react-icons/ri';
 
 function SearchRes({
   searchResults, selectingFavTrack, setSelectingFavTrack, favTracks, setFavTracks, setSearchResults
