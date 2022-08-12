@@ -40,7 +40,7 @@ A: You're absolutely right. I didn't have to. But I wanted to use this MVP proje
 ### Q: Why did you decide to have your web app NOT integrated with users' Spotify accounts since the Spotify API does offer this option to developers?
 A: The personal answer is that Spotify already has plenty of personal data on me and I don't want a 3rd-party developer to get access to that information. So I'd imagine that there are users out there who are just as concerned with their privacy. The web developer answer is that I get less granular data with this approach, and often, when inundated with too much information sometimes we don't know what to do with it. Choosing a simple-data route provided me with plenty of opportunities to practice ReactJS `useRef` in this project.
 
-## To check out the project at its current state
+## To check out the project locally at its current state
 - Make sure you have PostgreSQL installed on your computer.
 - In the root folder, `npm install` to get all dependency packages
 - Pre-seed your local database by running the following commands in the root directory of the projects:
