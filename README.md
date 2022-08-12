@@ -12,7 +12,7 @@ In both a user’s personal page and any other users’ pages, all the favorite 
 In their personal page, a user has the ability to search for a track by title and artists’ names, then select one (or none) among the available returned options to add to their favorite list.
 ![Search Function on Personal Page](https://i.imgur.com/sRuSDc7.png)
 
-Before favoriting any song though, one absolutely can check out a 30-second-max playback of each these options if they are available (indicated by the display of a play button)! (Unfortunately tracks by many popular artists such as Rihanna, Eminem, Maroon 5 etc. will not have playbacks available due to market availability and copyright restrictions).
+Before favoriting any song though, one absolutely can check out a 30-second-max playback of each these options if playback is available (indicated by the display of a play button)! (Unfortunately tracks by many popular artists such as Rihanna, Eminem, Maroon 5 etc. will not have playbacks available due to market availability and copyright restrictions).
 
 ## Tech Stacks:
 - PostgreSQL
