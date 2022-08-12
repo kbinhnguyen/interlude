@@ -1,8 +1,7 @@
 import { useState } from 'react';
 
 function Form({
-  searchClicked, setSearchClicked, handleInitialSearch, setSelectingFavTrack, searchResults, favTrack,
-  setFavTrack,
+  searchClicked, setSearchClicked, handleInitialSearch, setSelectingFavTrack, setFavTrack,
 }) {
   const [querySong, setQuerySong] = useState('');
   const [queryArtists, setQueryArtists] = useState('');

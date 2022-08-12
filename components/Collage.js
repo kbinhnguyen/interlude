@@ -9,12 +9,14 @@ function Collage({ tracks }) {
       <style jsx>
         {`
           .collage {
+            justify-self: center;
+            width: 70%;
             margin-top: 100px;
             margin-bottom: 80px;
             display: grid;
             justify-content: center;
-            grid-template-columns: repeat(6, max-content);
-            grid-auto-rows: max-content;
+            grid-template-columns: repeat(auto-fill, 150px);
+            grid-auto-rows: 150px;
           }
         `}
       </style>
