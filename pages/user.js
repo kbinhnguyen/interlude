@@ -47,7 +47,7 @@ function User({ userData }) {
             align-self: center;
             display: grid;
             grid-template-rows: max-content max-content max-content;
-            gap: 15px;
+            gap: 20px;
           }
           .avatar {
             border-radius: 50%;
