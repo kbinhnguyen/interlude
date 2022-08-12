@@ -168,10 +168,18 @@ function SearchRes({
             li {
               width: 95%;
               display: grid;
-              grid-template-columns: 1fr 15fr 1fr;
+              grid-template-columns: 2fr 14fr 2fr;
               grid-auto-rows: max-content;
               align-items: center;
               justify-items: center;
+              background: #E1ECE8;
+              border: 0.5px solid grey;
+              padding-top: 5px;
+              padding-bottom: 5px;
+            }
+            li:hover {
+              background: #1F2041;
+              color: white;
             }
             .options {
               cursor: pointer;
@@ -196,6 +204,7 @@ function SearchRes({
               width: 75%;
               border-radius: 15px;
               cursor: pointer;
+              align-self: center;
             }
           `}
         </style>

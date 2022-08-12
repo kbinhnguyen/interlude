@@ -124,7 +124,7 @@ function Me() {
             width: 90%;
             align-self: center;
             display: grid;
-            grid-template-rows: max-content max-content max-content 100px;
+            grid-template-rows: max-content max-content max-content 50px;
             gap: 15px;
           }
           .avatar {
