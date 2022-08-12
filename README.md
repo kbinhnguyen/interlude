@@ -17,12 +17,10 @@ In their personal page, a user has the ability to search for a track by title an
 Before favoriting any song though, one absolutely can check out a 30-second-max playback for any of these options if playback is available, as indicated by the display of a play button! Unfortunately tracks by many popular artists such as Rihanna, Eminem, Maroon 5 etc. will not have playbacks available due to market availability and copyright restrictions.
 
 ## Tech Stacks:
-- PostgreSQL
-- NodeJS
-- ExpressJS
-- NextJS
-- ReactJS
-- REST and GraphQL APIs (via Apollo Server and Apollo Client)
+- [PostgreSQL](https://www.postgresql.org/) and [node-postgres](https://node-postgres.com/)
+- [NodeJS](https://nodejs.dev/) and [ExpressJS](https://expressjs.com/)
+- [ReactJS](https://reactjs.org/) and [NextJS](https://nextjs.org/)
+- [GraphQL](https://graphql.org/) and [Apollo Server and Apollo Client](https://www.apollographql.com/)
 
 ## Caveats
 This project was completed over the span of 3 days so there is still a lot to be improved on. Some known issues:
