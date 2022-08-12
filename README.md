@@ -28,22 +28,6 @@ In the Home (or Feed page), clicking on any user will take one to the personal p
 - [ReactJS](https://reactjs.org/) and [NextJS](https://nextjs.org/)
 - [GraphQL](https://graphql.org/) and [Apollo Server and Apollo Client](https://www.apollographql.com/)
 
-## Caveats
-This project was completed over the span of 4 days so there is still a lot to be improved on. Some known issues:
-- The custom API can’t always handle non-Latin characters (such as Chinese) in track titles or artist names.
-- Special characters and punctuation marks in search strings are not currently supported by the app.
-- The app is currently not supporting returning results beyond the initial 20 if your search query returns more than that.
-- The app is also not implementing authentication or a log-in system.
-
-Please check back at a later date for additional and perhaps cooler features. I will be continuing this project as time permits.
-
-## Some questions you may have
-### Q: Why did you decide to do server-side rendering for some pages for such a simple web app?
-A: You're absolutely right. I didn't have to. But I wanted to use this MVP project as an opportunity to learn some new technologies and implement new concepts that are important to backend development as that is where I have the strongest interest.
-
-### Q: Why did you decide to have your web app NOT integrated with users' Spotify accounts even though the Spotify API does offer this option to developers?
-A: The personal answer is that Spotify already has plenty of personal data on me and I don't want a 3rd-party developer to get access to that information. So I'd imagine that there are users out there who are just as concerned with their privacy. The web developer answer is that I get less granular data with this approach, and often, when inundated with too much information sometimes we don't know what to do with it. Choosing a simple-data route provided me with plenty of opportunities to focus on the more 'raw' aspects of my data, such as working with `img` and `audio` elements. Thanks to that I got a lot of practice with ReactJS `useRef` in this project.
-
 ## To check out the project locally at its current state
 - Make sure you have PostgreSQL installed on your computer.
 - In the root folder, `npm install` to get all dependency packages
@@ -59,6 +43,22 @@ A: The personal answer is that Spotify already has plenty of personal data on me
 - Then you will need to host 2 servers: one performs server-side rendering of the HTML string to return to your client, the second hosts our simple custom-made GraphQL API. :)
 - `npm start` will start the first server, and `npm run server_api` will start the second.
 - Now if you navigate to `localhost:[port number of your choice]`, that will be the client’s side of this app - and you are currently logged in as user “binh” with a few pre-seeded favorite tracks. Navigating to `localhost:4320` will take you to a sandbox to explore and interact with the simple GraphQL API that I have created.
+
+## Caveats
+This project was completed over the span of 4 days so there is still a lot to be improved on. Some known issues:
+- The custom API can’t always handle non-Latin characters (such as Chinese) in track titles or artist names.
+- Special characters and punctuation marks in search strings are not currently supported by the app.
+- The app is currently not supporting returning results beyond the initial 20 if your search query returns more than that.
+- The app is also not implementing authentication or a log-in system.
+
+Please check back at a later date for additional and perhaps cooler features. I will be continuing this project as time permits.
+
+## Some questions you may have
+### Q: Why did you decide to do server-side rendering for some pages for such a simple web app?
+A: You're absolutely right. I didn't have to. But I wanted to use this MVP project as an opportunity to learn some new technologies and implement new concepts that are important to backend development as that is where I have the strongest interest.
+
+### Q: Why did you decide to have your web app NOT integrated with users' Spotify accounts even though the Spotify API does offer this option to developers?
+A: The personal answer is that Spotify already has plenty of personal data on me and I don't want a 3rd-party developer to get access to that information. So I'd imagine that there are users out there who are just as concerned with their privacy. The web developer answer is that I get less granular data with this approach, and often, when inundated with too much information sometimes we don't know what to do with it. Choosing a simple-data route provided me with plenty of opportunities to focus on the more 'raw' aspects of my data, such as working with `img` and `audio` elements. Thanks to that I got a lot of practice with ReactJS `useRef` in this project.
 
 ## Contact
 If you encounter any bugs, issues or simply want to chat, please definitely reach out!
