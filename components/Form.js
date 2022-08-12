@@ -56,6 +56,7 @@ function Form({
             border-bottom: 1px solid #222;
             background: transparent;
             color: #222;
+            font-family: 'Libre Baskerville', serif;
           }
           input:focus {
             outline: none;
@@ -63,6 +64,7 @@ function Form({
           input::placeholder{
             color: #222;
             opacity: 1;
+            font-family: 'Libre Baskerville', serif;
           }
           button {
             background: #1F2041;
@@ -72,6 +74,7 @@ function Form({
             width: 75%;
             border-radius: 15px;
             cursor: pointer;
+            font-family: 'Libre Baskerville', serif;
           }
           button:hover {
             opacity: 85%;

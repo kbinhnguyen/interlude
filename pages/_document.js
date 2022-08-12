@@ -6,7 +6,10 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Raleway:wght@400;600;800&display=swap" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <body>
         <Main />

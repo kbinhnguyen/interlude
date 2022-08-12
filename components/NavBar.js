@@ -25,6 +25,7 @@ function NavBar() {
             background-color: transparent;
             cursor: pointer;
             font-size: 20px;
+            font-family: 'Libre Baskerville', serif;
           }
           h1 {
             margin-top: 0;

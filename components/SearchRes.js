@@ -247,6 +247,7 @@ function SearchRes({
               border-radius: 15px;
               cursor: pointer;
               align-self: center;
+              font-family: 'Libre Baskerville', serif;
             }
             .inactive-btn {
               background: grey;

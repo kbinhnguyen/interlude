@@ -147,6 +147,9 @@ function Me() {
           .text {
             margin: 0;
           }
+          h4 {
+            font-style: italic;
+          }
           @media (max-width: 700px) {
             .user-profile{
               height: max-content;
