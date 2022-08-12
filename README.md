@@ -18,7 +18,8 @@ In their personal page, a user has the ability to search for a track by title an
 
 Before favoriting any song though, one absolutely can check out a 30-second-max playback for any of these options if playback is available, as indicated by the display of a play button! Unfortunately tracks by many popular artists such as Rihanna, Eminem, Maroon 5 etc. will not have playbacks available due to market availability and copyright restrictions.
 
-In the Home (or Feed page), clicking on any user will take one to the personal page of that particular user. 
+In the Home (or Feed page), clicking on any user will take one to the personal page of that particular user.
+
 ![Other User Page](https://i.imgur.com/ZoHIxUM.png)
 
 ## Tech Stacks:
