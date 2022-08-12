@@ -1,7 +1,7 @@
 # rfp2205-mvp
 Hey there!
 
-Thanks for dropping by! To check out this project, 
+Thanks for dropping by!
 
 ## Features
 With this web app a user will be able to keep track of their favorite songs and check out songs favorited by other users. In the home (or feed page), clicking on any user will take one to the personal page of that particular user. Clicking on ‘Home’ in the navigation bar will take one back to the home page, and clicking on ‘Me’ will take the user to their personal page. 
