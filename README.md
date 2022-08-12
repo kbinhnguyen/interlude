@@ -43,7 +43,7 @@ A: The personal answer is that Spotify already has plenty of personal data on me
 ## To check out the project locally at its current state
 - Make sure you have PostgreSQL installed on your computer.
 - In the root folder, `npm install` to get all dependency packages
-- Pre-seed your local database by running the following commands in the root directory of the projects:
+- Pre-seed your local database by running the following commands in the root directory of the project:
   - `psql postgres -f ./database/schema.sql` (create tables & schema in the database)
   - `psql postgres -f ./database/seed.sql` (seed the database with dummy data)
 - We will be using Spotify as our 3rd-party API. Sign up for an account or sign in with [Spotify Developers](https://developer.spotify.com/dashboard/login), then select the option to create an app. This will give you a `Client ID` and `Client Secret`.
