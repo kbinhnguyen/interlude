@@ -4,7 +4,9 @@ Hey there!
 Thanks for dropping by!
 
 ## Features
-With this web app a user will be able to keep track of their favorite songs and check out songs favorited by other users. In the home (or feed page), clicking on any user will take one to the personal page of that particular user. Clicking on ‘Home’ in the navigation bar will take one back to the home page, and clicking on ‘Me’ will take the user to their personal page. 
+With this web app a user will be able to keep track of their favorite songs and check out songs favorited by other users.
+
+Clicking on ‘Home’ in the navigation bar will take one back to the home page, and clicking on ‘Me’ will take the user to their personal page. 
 
 In both a user’s personal page and any other users’ pages, all the favorite tracks are displayed as an image collage, and hovering over any of these images will trigger a 30-second playback of the corresponding tracks.
 
@@ -15,6 +17,9 @@ In their personal page, a user has the ability to search for a track by title an
 ![Search Function on Personal Page](https://i.imgur.com/sRuSDc7.png)
 
 Before favoriting any song though, one absolutely can check out a 30-second-max playback for any of these options if playback is available, as indicated by the display of a play button! Unfortunately tracks by many popular artists such as Rihanna, Eminem, Maroon 5 etc. will not have playbacks available due to market availability and copyright restrictions.
+
+In the Home (or Feed page), clicking on any user will take one to the personal page of that particular user. 
+![Other User Page](https://i.imgur.com/ZoHIxUM.png)
 
 ## Tech Stacks:
 - [PostgreSQL](https://www.postgresql.org/) and [node-postgres](https://node-postgres.com/)
