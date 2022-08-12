@@ -109,7 +109,7 @@ function SearchRes({
           )}
 
           {!selectingFavTrack && !favTrack && searchResults && searchResults.length > 0 && (
-            <li className="options">
+            <li className="options" style={{ opacity: '70%' }}>
               {searchResults[0].preview
                 && !playing
                 && (
