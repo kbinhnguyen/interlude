@@ -5,20 +5,31 @@ function NavBar() {
   const router = useRouter();
   return (
     <div className="navbar">
-      <Link href="/">
-        <button type="button" className={router.pathname === '/' ? 'active' : ''}>Explore</button>
-      </Link>
-      <Link href="/me">
-        <button type="button" className={router.pathname === '/me' ? 'active' : ''}>Me</button>
-      </Link>
+      <h1>Interlude</h1>
+      <div className="navbar-links">
+        <Link href="/">
+          <button type="button" className={router.pathname === '/' ? 'active' : ''}>Home</button>
+        </Link>
+        <Link href="/me">
+          <button type="button" className={router.pathname === '/me' ? 'active' : ''}>Me</button>
+        </Link>
+      </div>
       <style jsx>
         {`
-          a {
-            text-decoration: none;
+          .active {
+            text-decoration: overline 3px;
+          }
+          button {
+            border: none;
+            color: white;
+            background-color: transparent;
+            cursor: pointer;
             font-size: 20px;
           }
-          .active {
-            color: blue;
+          h1 {
+            margin-top: 0;
+            margin-bottom: 0;
+            color: white;
           }
         `}
       </style>

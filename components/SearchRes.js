@@ -202,9 +202,10 @@ function SearchRes({
               list-style-type: none;
               margin: 0;
               padding: 0;
-              height: max-content;
+              height: 500px;
               width: 98%;
               grid-column: 1 / 2;
+              overflow: scroll;
             }
             li {
               width: 95%;

@@ -10,6 +10,7 @@ function Collage({ tracks }) {
         {`
           .collage {
             margin-top: 100px;
+            margin-bottom: 80px;
             display: grid;
             justify-content: center;
             grid-template-columns: repeat(6, max-content);

@@ -13,7 +13,8 @@ function CustomApp({ Component, pageProps }) {
             background-color: #4B3F72;
             display: flex;
             justify-content: space-between;
-            padding: 1rem;
+            padding: 0.5rem;
+            align-items: center;
           }
         `}
       </style>

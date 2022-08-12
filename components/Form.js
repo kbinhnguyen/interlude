@@ -65,6 +65,9 @@ function Form({
             border-radius: 15px;
             cursor: pointer;
           }
+          button:hover {
+            opacity: 85%;
+          }
         `}
       </style>
     </>
