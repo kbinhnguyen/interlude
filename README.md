@@ -29,7 +29,7 @@ In the Home (or Feed) page, clicking on any user will take one to the personal p
 - [GraphQL](https://graphql.org/) and [Apollo Server and Apollo Client](https://www.apollographql.com/)
 
 ## To check out the project locally at its current state
-- Make sure you have PostgreSQL installed on your computer.
+- Make sure you have PostgreSQL installed on your computer
 - In the root folder, `npm install` to get all dependency packages
 - Pre-seed your local database by running the following commands in the root directory of the project:
   - `psql postgres -f ./database/schema.sql` (create tables & schema in the database)
