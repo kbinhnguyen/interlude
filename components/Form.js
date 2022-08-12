@@ -1,6 +1,9 @@
 import { useState } from 'react';
 
-function Form({ searchClicked, setSearchClicked, handleInitialSearch }) {
+function Form({
+  searchClicked, setSearchClicked, handleInitialSearch, setSelectingFavTrack, searchResults, favTrack,
+  setFavTrack,
+}) {
   const [querySong, setQuerySong] = useState('');
   const [queryArtists, setQueryArtists] = useState('');
 
@@ -10,6 +13,7 @@ function Form({ searchClicked, setSearchClicked, handleInitialSearch }) {
     setSearchClicked(!searchClicked);
     setQuerySong('');
     setQueryArtists('');
+    setFavTrack(null);
     // router.reload(); // this line of code is for SSR of Me page, will force a HARD reload of page
   };
 
@@ -22,6 +26,9 @@ function Form({ searchClicked, setSearchClicked, handleInitialSearch }) {
           onChange={(e) => { setQuerySong(e.target.value); }}
           placeholder="Song"
           required
+          onInput={() => {
+            setSelectingFavTrack(false);
+          }}
         />
         <input
           type="text"
@@ -29,6 +36,9 @@ function Form({ searchClicked, setSearchClicked, handleInitialSearch }) {
           onChange={(e) => { setQueryArtists(e.target.value); }}
           placeholder="Artist(s)"
           required
+          onInput={() => {
+            setSelectingFavTrack(false);
+          }}
         />
         <button type="submit">Search!</button>
       </form>

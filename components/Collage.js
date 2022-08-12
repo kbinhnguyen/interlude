@@ -9,7 +9,11 @@ function Collage({ tracks }) {
       <style jsx>
         {`
           .collage {
-            margin-top: 50px;
+            margin-top: 100px;
+            display: grid;
+            justify-content: center;
+            grid-template-columns: repeat(6, max-content);
+            grid-auto-rows: max-content;
           }
         `}
       </style>

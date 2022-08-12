@@ -23,6 +23,7 @@ function Me() {
     prev: '',
   });
   const [selectingFavTrack, setSelectingFavTrack] = useState(false);
+  const [favTrack, setFavTrack] = useState(null);
 
   useEffect(() => {
     client.query({
@@ -91,6 +92,10 @@ function Me() {
               searchClicked={searchClicked}
               setSearchClicked={setSearchClicked}
               handleInitialSearch={handleInitialSearch}
+              setSelectingFavTrack={setSelectingFavTrack}
+              searchResults={searchResults}
+              favTrack={favTrack}
+              setFavTrack={setFavTrack}
             />
             <SearchRes
               searchResults={searchResults}
@@ -99,6 +104,8 @@ function Me() {
               favTracks={favTracks}
               setFavTracks={setFavTracks}
               setSearchResults={setSearchResults}
+              favTrack={favTrack}
+              setFavTrack={setFavTrack}
             />
           </div>
         </div>

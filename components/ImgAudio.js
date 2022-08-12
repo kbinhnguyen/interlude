@@ -13,17 +13,17 @@ function ImgAudio({ track }) {
 
   if (track) {
     return (
-      <>
+      <div>
         <Image
           src={track.img_url}
           alt={track.title}
-          width={200}
-          height={200}
+          width={150}
+          height={150}
           onMouseOver={onImgHover}
           onMouseLeave={onImgUnHover}
         />
         <audio ref={sound} src={track.preview} />
-      </>
+      </div>
     );
   }
   return null;

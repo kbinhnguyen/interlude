@@ -4,11 +4,11 @@ import { BsFillPauseCircleFill, BsFillPlayCircleFill } from 'react-icons/bs';
 import { RiArrowDownSFill } from 'react-icons/ri';
 
 function SearchRes({
-  searchResults, selectingFavTrack, setSelectingFavTrack, favTracks, setFavTracks, setSearchResults
+  searchResults, selectingFavTrack, setSelectingFavTrack, favTracks, setFavTracks, setSearchResults,
+  favTrack, setFavTrack,
 }) {
   const [currRef, setCurrRef] = useState(null);
   const [selectedTrackToPlay, setSelectedTrackToPlay] = useState(null);
-  const [favTrack, setFavTrack] = useState(null);
   const [playing, setPlaying] = useState(false);
   const sound = useRef(null);
   const client = useApolloClient();
@@ -66,6 +66,7 @@ function SearchRes({
     return (
       <div className="search-results">
         <ul className="searchList">
+
           {/* collapsed view */}
           {!selectingFavTrack && favTrack && (
             <li className="options">
@@ -100,6 +101,46 @@ function SearchRes({
                 && (
                   <audio
                     src={favTrack.preview}
+                    ref={sound}
+                    onEnded={() => { setPlaying(false); }}
+                  />
+                )}
+            </li>
+          )}
+
+          {!selectingFavTrack && !favTrack && searchResults && searchResults.length > 0 && (
+            <li className="options">
+              {searchResults[0].preview
+                && !playing
+                && (
+                  <BsFillPlayCircleFill
+                    size={15}
+                    onClick={() => {
+                      setSelectedTrackToPlay(searchResults[0]);
+                      setPlaying(true);
+                      setCurrRef(sound.current);
+                    }}
+                  />
+                )}
+                {searchResults[0].preview
+                && playing
+                && (
+                  <BsFillPauseCircleFill
+                    size={15}
+                    onClick={pauseMusic}
+                  />
+                )}
+              <div className="options-text collapsed" onClick={() => { setSelectingFavTrack(true); }}>
+                {searchResults[0].title}
+                <br />
+                {`by ${searchResults[0].artists.join(', ')}`}
+              </div>
+              <RiArrowDownSFill onClick={() => { setSelectingFavTrack(true); }} />
+              {selectedTrackToPlay
+                && selectedTrackToPlay.id === searchResults[0].id
+                && (
+                  <audio
+                    src={searchResults[0].preview}
                     ref={sound}
                     onEnded={() => { setPlaying(false); }}
                   />
@@ -146,7 +187,7 @@ function SearchRes({
             </li>
           )))}
         </ul>
-        {!favTrack && (<button type="button">Add to collection!</button>)}
+        {!favTrack && (<button type="button" className="inactive-btn">Add to collection!</button>)}
         {favTrack && (<button type="button" onClick={handleAddFav}>Add to collection!</button>)}
         <style jsx>
           {`
@@ -162,7 +203,7 @@ function SearchRes({
               margin: 0;
               padding: 0;
               height: max-content;
-              width: 100%;
+              width: 98%;
               grid-column: 1 / 2;
             }
             li {
@@ -205,6 +246,9 @@ function SearchRes({
               border-radius: 15px;
               cursor: pointer;
               align-self: center;
+            }
+            .inactive-btn {
+              background: grey;
             }
           `}
         </style>
