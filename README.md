@@ -40,7 +40,7 @@ In the Home (or Feed) page, clicking on any user will take one to the personal p
   - `SPOTIFY_AUTH=[insert the code you just converted into base-64 format here, wrapping “ marks around the string]`
   - `PG_DATABASE=secret_project`
   - `HTML_SERVER_PORT=[choose a port number of your choice]`
-- Then you will need to host 2 servers: one performs server-side rendering of the HTML string to return to your client, the second hosts our simple custom-made GraphQL API. :)
+- Then you will need to host 2 servers: one performs server-side rendering of the HTML string to return to your client, the other hosts our simple custom-made GraphQL API. :)
 - `npm start` will start the first server, and `npm run server_api` will start the second.
 - Now if you navigate to `localhost:[port number of your choice]`, that will be the client’s side of this app - and you are currently logged in as user “binh” with a few pre-seeded favorite tracks. Navigating to `localhost:4320` will take you to a sandbox to explore and interact with the simple GraphQL API that I have created.
 
