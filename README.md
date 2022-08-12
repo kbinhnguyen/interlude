@@ -23,7 +23,7 @@ Before favoriting any song though, one absolutely can check out a 30-second-max 
 - [GraphQL](https://graphql.org/) and [Apollo Server and Apollo Client](https://www.apollographql.com/)
 
 ## Caveats
-This project was completed over the span of 3 days so there is still a lot to be improved on. Some known issues:
+This project was completed over the span of 4 days so there is still a lot to be improved on. Some known issues:
 - The custom API can’t always handle non-Latin characters (such as Chinese) in track titles or artist names.
 - Special characters and punctuation marks in search strings are not currently supported by the app.
 - The app is currently not supporting returning results beyond the initial 20 if your search query returns more than that.
