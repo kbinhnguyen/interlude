@@ -52,8 +52,17 @@ function Form({
             width: 85%;
             height: 23px;
             cursor: text;
-            border-radius: 8px;
-            border: 1px solid grey;
+            border: 0;
+            border-bottom: 1px solid #222;
+            background: transparent;
+            color: #222;
+          }
+          input:focus {
+            outline: none;
+          }
+          input::placeholder{
+            color: #222;
+            opacity: 1;
           }
           button {
             background: #1F2041;

@@ -141,6 +141,7 @@ function Me() {
             height: 200px;
             justify-self: center;
             align-self: center;
+            border: 1px solid black;
           }
           .text {
             margin: 0;
