@@ -42,7 +42,7 @@ A: The personal answer is that Spotify already has plenty of personal data on me
 - Pre-seed your local database by running the following commands in the root directory of the projects:
   - `psql postgres -f ./database/schema.sql` (create tables & schema in the database)
   - `psql postgres -f ./database/seed.sql` (seed the database with dummy data)
-- We will be using Spotify as our 3rd-party API. Sign up for an account or sign in with [Spotify Developers] (https://developer.spotify.com/dashboard/login), then select the option to create an app. This will give you a `Client ID` and `Client Secret`.
+- We will be using Spotify as our 3rd-party API. Sign up for an account or sign in with [Spotify Developers](https://developer.spotify.com/dashboard/login), then select the option to create an app. This will give you a `Client ID` and `Client Secret`.
 - At this point you can programmatically do a conversion or use [an external website](https://www.base64encode.org/) to encode the following string to base-64 format: `[your Client ID]:[your Client Secret]` (so combining both the `Client ID` and the `Client Secret` with a `:` separating them).
 - Create a `.env` file in your root folder with the following data:
   - `SPOTIFY_AUTH=[insert the code you just converted into base-64 format here, wrapping them around “ marks]`
