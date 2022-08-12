@@ -240,7 +240,7 @@ function SearchRes({
             button {
               grid-column: 2 / 3;
               background: #1F2041;
-              height: 30px;
+              height: 35px;
               color: white;
               border: 1px solid white;
               width: 75%;

@@ -30,6 +30,8 @@ function NavBar() {
             margin-top: 0;
             margin-bottom: 0;
             color: white;
+            font-family: 'Dancing Script', cursive;
+            font-size: 50px;
           }
         `}
       </style>

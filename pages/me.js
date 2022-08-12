@@ -87,7 +87,7 @@ function Me() {
           </div>
           <div className="side-profile">
             {user.username && <h2 className="text">{`♯ ${user.username}`}</h2>}
-            <h4 className="text">Howdy! Which tune best describes your mood now? 💭</h4>
+            <h4 className="text">Howdy! Which tune best describes your mood now? <span style={{fontSize: '30px'}}>💭</span></h4>
             <Form
               searchClicked={searchClicked}
               setSearchClicked={setSearchClicked}
@@ -126,6 +126,7 @@ function Me() {
             margin-top: 3rem;
             align-items: start;
             background: #FFC857;
+            border-radius: 20px;
           }
           .side-profile {
             width: 90%;
@@ -145,6 +146,23 @@ function Me() {
           }
           .text {
             margin: 0;
+          }
+          @media (max-width: 700px) {
+            .user-profile{
+              height: max-content;
+              justify-content: center;
+              grid-template-rows: 240px 320px;
+              grid-template-columns: 100%;
+            }
+            .side-profile {
+              justify-self: center;
+            }
+            .avatar {
+              align-self: end;
+            }
+            h2 {
+              justify-self: center;
+            }
           }
         `}
       </style>
