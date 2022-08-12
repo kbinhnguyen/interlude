@@ -22,7 +22,7 @@ In the Home (or Feed) page, clicking on any user will take one to the personal p
 
 ![Other User Page](https://i.imgur.com/ZoHIxUM.png)
 
-## Tech Stacks:
+## Technologies Used
 - [PostgreSQL](https://www.postgresql.org/) and [node-postgres](https://node-postgres.com/)
 - [NodeJS](https://nodejs.dev/) and [ExpressJS](https://expressjs.com/)
 - [ReactJS](https://reactjs.org/) and [NextJS](https://nextjs.org/)
