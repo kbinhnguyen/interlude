@@ -37,7 +37,7 @@ In the Home (or Feed) page, clicking on any user will take one to the personal p
 - We will be using Spotify as our 3rd-party API. Sign up for an account or sign in with [Spotify Developers](https://developer.spotify.com/dashboard/login), then select the option to create an app. This will give you a `Client ID` and `Client Secret`.
 - At this point you can programmatically do a conversion or use [an external website](https://www.base64encode.org/) to encode the following string to base-64 format: `[your Client ID]:[your Client Secret]` (so combining both the `Client ID` and the `Client Secret` with a `:` separating them).
 - Create a `.env` file in the root folder with the following data:
-  - `SPOTIFY_AUTH=[insert the code you just converted into base-64 format here, wrapping “ marks around the string]`
+  - `SPOTIFY_AUTH=[insert the code you just converted into base-64 format here, wrapping quotation marks (“ ") around the string]`
   - `PG_DATABASE=secret_project`
   - `HTML_SERVER_PORT=[choose a port number of your choice]`
 - Then you will need to host 2 servers: one performs server-side rendering of the HTML string to return to your client, the other hosts our simple custom-made GraphQL API. :)
