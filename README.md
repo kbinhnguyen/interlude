@@ -60,7 +60,7 @@ A: You're absolutely right. I didn't have to. But I wanted to use this MVP proje
 ### Q: Why did you decide to have your web app NOT integrated with users' Spotify accounts even though the Spotify API does offer this option to developers?
 A: The personal answer is that Spotify already has plenty of personal data on me and I don't want a 3rd-party developer to get access to that information. So I'd imagine that there are users out there who are just as concerned with their privacy. Also, not everyone may have a Spotify account, perhaps they use Apple Music or Amazon Music, or don't utilize a music streaming service at all. I wanted this project to be inclusive.
 
-The web developer answer is that I get less granular data with this approach, and often, when inundated with too much information sometimes we don't know what to do with it. Choosing a simple-data route provided me with plenty of opportunities to focus on the more 'raw' and more widely accessible aspects of my data, such as working with `img` and `audio` elements, and to build a full-stack app from the ground up. I got a lot of good practice with ReactJS `refs` in this project.
+The web developer answer is that I get less granular data with this approach, and often, when inundated with too much information sometimes we don't know what to do with it. Choosing a simple-data model provided me with plenty of opportunities to focus on the more 'raw' and more widely accessible aspects of my data, such as working with `img` and `audio` elements, and to build a full-stack app from the ground up. I got a lot of good practice with ReactJS `refs` in this project.
 
 ## Contact
 If you encounter any bugs, issues or simply want to chat, please definitely reach out!
