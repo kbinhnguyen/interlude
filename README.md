@@ -24,7 +24,7 @@ In the Home (or Feed) page, clicking on any user will take one to the personal p
 
 ## Technologies Used
 - [PostgreSQL](https://www.postgresql.org/) and [node-postgres](https://node-postgres.com/)
-- [NodeJS](https://nodejs.dev/) and [ExpressJS](https://expressjs.com/)
+- [NodeJS](https://nodejs.dev/), [ExpressJS](https://expressjs.com/) and [Axios](https://axios-http.com/)
 - [ReactJS](https://reactjs.org/) and [NextJS](https://nextjs.org/)
 - [GraphQL](https://graphql.org/) and [Apollo Server and Apollo Client](https://www.apollographql.com/)
 
