@@ -14,11 +14,12 @@ Before favoriting any song, it is possible to check out a 30-second-max playback
 
 ![Other User Page](https://i.imgur.com/ZoHIxUM.png)
 
-## Technologies Used
+## Technologies & APIs Used
 - [PostgreSQL](https://www.postgresql.org/) and [node-postgres](https://node-postgres.com/)
 - [NodeJS](https://nodejs.dev/), [ExpressJS](https://expressjs.com/) and [Axios](https://axios-http.com/)
 - [ReactJS](https://reactjs.org/) and [NextJS](https://nextjs.org/)
 - [GraphQL](https://graphql.org/) and [Apollo Server and Apollo Client](https://www.apollographql.com/)
+- [Spotify Web API](https://developer.spotify.com/documentation/web-api/)
 
 ## To check out the project locally at its current state
 - Make sure you have PostgreSQL installed on your computer
